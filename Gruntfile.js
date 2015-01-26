@@ -21,7 +21,8 @@ module.exports = function (grunt) {
     // configurable paths
     var yeomanConfig = {
         app: 'app',
-        dist: 'dist'
+        dist: 'dist',
+        www: '/var/www/goodcoffee.nyc/html/'
     };
 
     grunt.initConfig({
@@ -273,7 +274,7 @@ module.exports = function (grunt) {
                         ]
                     }
                 ]
-            }, 
+            },
             dist: {
                 files: [
                     {
@@ -286,6 +287,19 @@ module.exports = function (grunt) {
                             '.htaccess',
                             'images/{,*/}*.{webp,gif}',
                             'styles/fonts/*'
+                        ]
+                    }
+                ]
+            },
+            www: {
+                files: [
+                    {
+                        expand: true,
+                        dot: true,
+                        cwd: '<%= yeoman.dist %>',
+                        dest: '<%= yeoman.www %>',
+                        src: [
+                            '**'
                         ]
                     }
                 ]
@@ -374,7 +388,8 @@ module.exports = function (grunt) {
         'concat',
         'cssmin',
         'uglify',
-        'copy',
+        'copy:fonts',
+        'copy:dist',
         'rev',
         'usemin'
     ]);
@@ -383,5 +398,10 @@ module.exports = function (grunt) {
         'jshint',
         'test',
         'build'
+    ]);
+
+    grunt.registerTask('deploy', [
+        'build',
+        'copy:www'
     ]);
 };
