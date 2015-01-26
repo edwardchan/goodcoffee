@@ -1,0 +1,1 @@
+Goodcoffee.ApplicationAdapter = DS.FixtureAdapter;
