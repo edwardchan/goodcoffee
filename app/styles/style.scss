@@ -1,9 +1,18 @@
 $icon-font-path: "../styles/fonts/"; // Change the path to the fonts
 @import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap";
 
+@import url(http://fonts.googleapis.com/css?family=Slabo+27px);
+
+// Variables
+$brand_white: #FCFBE3;
+
 /* Put your CSS here */
 html, body {
     margin: 30px 0;
+}
+
+h1, p {
+    font-family: 'Slabo 27px', serif;
 }
 
 .home__video--full {
@@ -26,15 +35,36 @@ html, body {
     top: 0;
     background: black;
     opacity: 0.5;
-    z-index: 0;
+    z-index: -10;
 }
 
 .home__logo {
-    margin-top: 10%;
+    margin-top: 5%;
+    max-width: 500px;
+    width: 100%;
     z-index: 1;
 }
 
 .home__container {
     margin: 0;
     padding: 0;
+}
+
+.home__modal {
+    background: white;
+    opacity: 0.85;
+    border-radius: 5px;
+}
+
+.modal__row {
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+.home__signup--form .form-group {
+    width: 50%;
+
+    input {
+        width: 100%;
+    }
 }
